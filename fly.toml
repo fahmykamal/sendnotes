@@ -15,6 +15,7 @@ console_command = 'php /var/www/html/artisan tinker'
 [env]
   APP_ENV = 'production'
   DB_CONNECTION = "pgsql"
+  DATABASE_URL = "postgres://sendnotes_aged_paper_1547:MR3YedB21j7glDs@sendnotes-db.flycast:5432/sendnotes_aged_paper_1547?sslmode=disable"
   APP_URL = "https://sendnotes-aged-paper-1547.fly.dev"
   LOG_CHANNEL = 'stderr'
   LOG_LEVEL = 'info'
@@ -29,6 +30,9 @@ console_command = 'php /var/www/html/artisan tinker'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']
+
+[deploy]
+release_command = "php /var/www/html/artisan migrate --force"
 
 [[vm]]
   memory = '1gb'
